@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:src="@drawable/baseline_bookmark_border_24" />
+
+        <TextView
+            android:id="@+id/tv_character"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Character"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/tv_anime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anime"
+            android:textStyle="italic"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tv_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/tv_indo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Indo"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
