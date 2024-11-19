@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         BookmarkRoomDatabase.getDatabase(this)?.bookmarkDao()
     }
 
-    // Simpan list of quotes yang di-fetched dari API
     private var quotesList: List<Quote> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun fetchQuotes() {
         val apiService = ApiClient.getInstance()
-        val call = apiService.getKata("kuat", 1)
+        val call = apiService.getKata("tidak akan", 1)
 
         call.enqueue(object : Callback<QuoteResponse> {
             override fun onResponse(call: Call<QuoteResponse>, response: Response<QuoteResponse>) {
@@ -82,8 +81,6 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    //mengambil data bookmark dari database dan memperbarui tampilan daftar
-    //quote agar sesuai dengan status bookmark yang ada (mana yang sudah dibookmark).
     private fun fetchBookmarks() {
         bookmarkDao?.allBookmark?.observe(this) { bookmarks ->
             val bookmarkedIds = bookmarks.map { it.id }.toSet()
@@ -91,11 +88,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //menangani aksi bookmark pada suatu quote
     private fun handleBookmarkAction(quote: Quote, isBookmarked: Boolean) {
         CoroutineScope(Dispatchers.IO).launch {
-            //Jika quote tersebut dibookmark (ditandai isBookmarked bernilai true),
-            //maka quote tersebut akan disimpan ke dalam database Bookmark melalui fungsi insert
             if (isBookmarked) {
                 bookmarkDao?.insert(
                     Bookmark(

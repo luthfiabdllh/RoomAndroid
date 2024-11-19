@@ -11,6 +11,4 @@ data class Quote(
     val indo: String,
     val character: String,
     val anime: String
-) //menyimpan data quote, termasuk character, anime, english, info, dan id
-//dipakai di QuoteAdapter.kt untuk memetakan setiap quote ke tampilan item
-//dan di MainActivity.kt untuk parsing respons API
+)
